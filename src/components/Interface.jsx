@@ -445,7 +445,7 @@ const ContactSection = () => {
           paddingRight:
             screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
           paddingBottom:
-            screenSize == "md" || screenSize == "sm" ? "100px" : "150px",
+            screenSize == "md" || screenSize == "sm" ? "100px" : "300px",
         }}
       >
         <h2
@@ -626,7 +626,7 @@ const ProjectsSection = () => {
           marginTop:
             screenSize == "md" || screenSize == "sm" ? "200px" : "200px",
           marginLeft:
-            screenSize == "md" || screenSize == "sm" ? "-20px" : "370px",
+            screenSize == "md" || screenSize == "sm" ? "-20px" : "320px",
           gap: "2rem", // Equivalent to gap-8
           alignItems: "center",
           justifyContent: "left",
