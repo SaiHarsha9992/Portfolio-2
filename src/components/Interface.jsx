@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
 import { useEffect, useState } from "react";
+import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 const Section = (props) => {
   const [screenSize, setScreenSize] = useState(
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
@@ -33,11 +35,13 @@ const Section = (props) => {
         padding: "8rem",
         maxWidth: "1536px", // max-w-screen-2xl
         margin: "0 auto",
-        marginLeft: screenSize == "sm" ? "-70px" : "200px",
+        marginLeft:
+          screenSize == "md" || screenSize == "sm" ? "-90px" : "200px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        justifyContent: screenSize == "sm" ? "start" : "center",
+        justifyContent:
+          screenSize == "md" || screenSize == "sm" ? "start" : "center",
       }}
       initial={{
         opacity: 0,
@@ -103,7 +107,7 @@ const AboutSection = (props) => {
     <Section mobileTop>
       <h1
         style={{
-          fontSize: screenSize ? "2rem" : "3rem", // Equivalent to text-6xl
+          fontSize: screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem", // Equivalent to text-6xl
           fontWeight: "1000", // Equivalent to font-extrabold
           lineHeight: "1.75", // Equivalent to leading-snug
           padding: 0,
@@ -126,7 +130,7 @@ const AboutSection = (props) => {
       <motion.p
         style={{
           fontSize: "2.125rem",
-          color: "grey",
+          color: "black",
         }}
         initial={{
           opacity: 0,
@@ -157,7 +161,8 @@ const AboutSection = (props) => {
           borderRadius: "0.5rem", // rounded-lg
           fontWeight: "bold", // font-bold
           fontSize: "1.25rem", // text-lg
-          marginTop: screenSize ? "0.8rem" : "1rem",
+          marginTop:
+            screenSize == "md" || screenSize == "sm" ? "0.8rem" : "1rem",
         }}
         initial={{
           opacity: 0,
@@ -245,12 +250,13 @@ const SkillsSection = () => {
         whileInView={"visible"}
         style={{
           marginBottom: "100px",
-          width: screenSize === "sm" || screenSize === "md" ? "80%" : "",
+          width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
         }}
       >
         <h2
           style={{
-            fontSize: screenSize ? "2rem" : "3rem",
+            fontSize:
+              screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem",
             fontWeight: "bold",
             color: "white",
           }}
@@ -263,7 +269,10 @@ const SkillsSection = () => {
             <div className="w-64" key={index}>
               <motion.h3
                 style={{
-                  fontSize: screenSize ? "0.8rem" : "1rem",
+                  fontSize:
+                    screenSize == "md" || screenSize == "sm"
+                      ? "0.8rem"
+                      : "1rem",
                   fontWeight: "bold",
                   color: "white",
                 }}
@@ -387,6 +396,7 @@ const SkillsSection = () => {
 };
 
 const ContactSection = () => {
+  const [state, handleSubmit] = useForm("xwkgggvw");
   let [screenSize, setScreenSize] = useState(
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
   );
@@ -409,111 +419,145 @@ const ContactSection = () => {
   }, []);
   return (
     <Section>
-      <h2 style={{ fontSize: "3rem", fontWeight: "bold" }}>Contact me</h2>
       <div
         style={{
-          marginTop: "1rem",
-          marginRight:
+          paddingRight:
             screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
-          padding: "2rem",
-          borderRadius: "0.375rem",
-          backgroundColor: "grey",
-          width: "24rem",
-          maxWidth: "100%",
-          opacity: 0.9,
         }}
       >
-        <form>
-          <label
-            htmlFor="name"
-            style={{
-              fontWeight: "medium",
-              color: "#000000",
-              marginTop: "0.25rem",
-              marginBottom: "0.25rem",
-            }}
-          >
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            style={{
-              width: "100%",
-              borderRadius: "0.375rem",
-              borderWidth: "0",
-              color: "#000000",
-              boxShadow:
-                "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-              placeholderColor: "rgba(0,0,0,0.4)",
-              padding: "0.75rem",
-            }}
-          />
-          <label
-            htmlFor="email"
-            style={{
-              fontWeight: "medium",
-              color: "#000000",
-              marginTop: "1rem",
-            }}
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            style={{
-              width: "100%",
-              borderRadius: "0.375rem",
-              borderWidth: "0",
-              color: "#000000",
-              boxShadow:
-                "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-              placeholderColor: "rgba(0,0,0,0.4)",
-              padding: "0.75rem",
-            }}
-          />
-          <label
-            htmlFor="message"
-            style={{
-              fontWeight: "medium",
-              color: "#000000",
-              marginTop: "1rem",
-            }}
-          >
-            Message
-          </label>
-          <textarea
-            name="message"
-            id="message"
-            style={{
-              height: "8rem",
-              width: "100%",
-              borderRadius: "0.375rem",
-              borderWidth: "0",
-              color: "#000000",
-              boxShadow:
-                "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-              placeholderColor: "rgba(0,0,0,0.4)",
-              padding: "0.75rem",
-            }}
-          />
-          <button
-            style={{
-              backgroundColor: "black",
-              color: "#FFFFFF",
-              padding: "1rem 2rem",
-              borderRadius: "0.5rem",
-              fontWeight: "bold",
-              fontSize: "1.25rem",
-              marginTop: "2.5rem",
-            }}
-          >
-            Submit
-          </button>
-        </form>
+        <h2
+          style={{
+            fontSize:
+              screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem",
+            fontWeight: "bold",
+          }}
+        >
+          Contact me
+        </h2>
+        <div
+          style={{
+            marginTop: "1rem",
+            padding: "2rem",
+            borderRadius: "0.375rem",
+            backgroundColor: "grey",
+            width: screenSize == "md" || screenSize == "sm" ? "16rem" : "24rem",
+            maxWidth: "100%",
+            opacity: 0.9,
+          }}
+        >
+          {state.succeeded ? (
+            <p style={{ color: "gold", textAlign: "center" }}>
+              Thanks for your message !
+            </p>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <label
+                htmlFor="name"
+                style={{
+                  fontWeight: "medium",
+                  color: "#000000",
+                  marginTop: "0.25rem",
+                  marginBottom: "0.25rem",
+                }}
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                style={{
+                  width: "100%",
+                  borderRadius: "0.375rem",
+                  borderWidth: "0",
+                  color: "#000000",
+                  boxShadow:
+                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
+                  placeholderColor: "rgba(0,0,0,0.4)",
+                  padding: "0.75rem",
+                }}
+              />
+              <label
+                htmlFor="email"
+                style={{
+                  fontWeight: "medium",
+                  color: "#000000",
+                  marginTop: "1rem",
+                }}
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                style={{
+                  width: "100%",
+                  borderRadius: "0.375rem",
+                  borderWidth: "0",
+                  color: "#000000",
+                  boxShadow:
+                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
+                  placeholderColor: "rgba(0,0,0,0.4)",
+                  padding: "0.75rem",
+                }}
+              />
+              <ValidationError
+                style={{
+                  margin: 1,
+                  color: "red",
+                }}
+                errors={state.errors}
+              />
+              <label
+                htmlFor="message"
+                style={{
+                  fontWeight: "medium",
+                  color: "#000000",
+                  marginTop: "1rem",
+                }}
+              >
+                Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                style={{
+                  height: "8rem",
+                  width: "100%",
+                  borderRadius: "0.375rem",
+                  borderWidth: "0",
+                  color: "#000000",
+                  boxShadow:
+                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
+                  placeholderColor: "rgba(0,0,0,0.4)",
+                  padding: "0.75rem",
+                }}
+              />
+              <ValidationError
+                style={{
+                  margin: 1,
+                  color: "red",
+                }}
+                errors={state.errors}
+              />
+              <button
+                disabled={state.submitting}
+                style={{
+                  backgroundColor: "black",
+                  color: "#FFFFFF",
+                  padding: "1rem 2rem",
+                  borderRadius: "0.5rem",
+                  fontWeight: "bold",
+                  fontSize: "1.25rem",
+                  marginTop: "2.5rem",
+                }}
+              >
+                Submit
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </Section>
   );
@@ -559,7 +603,7 @@ const ProjectsSection = () => {
           marginTop:
             screenSize == "md" || screenSize == "sm" ? "200px" : "200px",
           marginLeft:
-            screenSize == "md" || screenSize == "sm" ? "-50px" : "370px",
+            screenSize == "md" || screenSize == "sm" ? "-20px" : "370px",
           gap: "2rem", // Equivalent to gap-8
           alignItems: "center",
           justifyContent: "left",
@@ -568,7 +612,7 @@ const ProjectsSection = () => {
         <button
           style={{
             transition: "color 0.3s ease", // Equivalent to transition-colors
-            width: "70px",
+            width: screenSize == "md" || screenSize == "sm" ? "60px" : "70px",
           }}
           onMouseEnter={(e) => (e.target.style.color = "#4F46E5")} // hover:text-indigo-600
           onMouseLeave={(e) => (e.target.style.color = "inherit")} // Reset color on mouse leave
@@ -578,7 +622,8 @@ const ProjectsSection = () => {
         </button>
         <h2
           style={{
-            fontSize: "4rem", // text-5xl
+            fontSize:
+              screenSize == "md" || screenSize == "sm" ? "3rem" : "4rem", // text-5xl
             fontWeight: "bold", // font-bold
           }}
         >
@@ -587,7 +632,7 @@ const ProjectsSection = () => {
         <button
           style={{
             transition: "color 0.3s ease", // Equivalent to transition-colors
-            width: "70px",
+            width: screenSize == "md" || screenSize == "sm" ? "60px" : "70px",
           }}
           onMouseEnter={(e) => (e.target.style.color = "black")} // hover:text-indigo-600
           onMouseLeave={(e) => (e.target.style.color = "inherit")} // Reset color on mouse leave

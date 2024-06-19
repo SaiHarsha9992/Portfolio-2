@@ -1,9 +1,4 @@
-import {
-  Float,
-  MeshDistortMaterial,
-  MeshWobbleMaterial,
-  useScroll,
-} from "@react-three/drei";
+import { Float, MeshDistortMaterial, useScroll } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
@@ -14,6 +9,7 @@ import { framerMotionConfig } from "../Config";
 import * as THREE from "three";
 import { Projects } from "./Projects";
 import { Background } from "./Background";
+
 export const Experience = (props) => {
   const { menuOpened } = props;
   const { viewport } = useThree();
@@ -61,6 +57,7 @@ export const Experience = (props) => {
       setCharacterAnimation(section === 0 ? "Typing" : "Standing");
     }, 600);
   }, [section]);
+
   useFrame((state) => {
     let curSection = Math.floor(data.scroll.current * data.pages);
     if (curSection > 3) {
@@ -72,18 +69,30 @@ export const Experience = (props) => {
     }
     state.camera.position.x = cameraPositionX.get();
     state.camera.lookAt(cameraLookAtX.get(), 0, 0);
-
-    // const position = new THREE.Vector3();
-    // THREE;
-    // characterContainerAboutRef.current.getWorldPosition(position);
-
-    // const quaternion = new THREE.Quaternion();
-    // characterContainerAboutRef.current.getWorldQuaternion(quaternion);
-    // const euler = new THREE.Euler();
-    // euler.setFromQuaternion(quaternion, "XYZ");
-
-    // console.log([euler.x, euler.y, euler.z]);
   });
+
+  const createGradientTexture = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 256;
+    canvas.height = 256;
+    const context = canvas.getContext("2d");
+
+    const gradient = context.createLinearGradient(0, 0, 256, 256);
+    gradient.addColorStop(0, "red");
+    gradient.addColorStop(0.5, "gold");
+    gradient.addColorStop(1, "orange");
+    gradient.addColorStop(0.5, "red");
+    context.fillStyle = gradient;
+    context.fillRect(0, 0, 256, 256);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+
+    return texture;
+  };
+
+  const gradientTexture = createGradientTexture();
+
   return (
     <>
       <Background />
@@ -108,7 +117,7 @@ export const Experience = (props) => {
           },
           1: {
             y: -viewport.height + -1,
-            x: 0.5,
+            x: screenSize == "md" || screenSize == "sm" ? 0 : 0.5,
             z: 6,
             rotateX: 0,
             rotateY: 0,
@@ -118,15 +127,18 @@ export const Experience = (props) => {
             scaleZ: 3,
           },
           2: {
-            x: -6,
-            y: -viewport.height * 2 + -4.5,
+            x: screenSize == "md" || screenSize == "sm" ? -1.8 : -6,
+            y:
+              screenSize == "md" || screenSize == "sm"
+                ? -viewport.height * 2 + -1.5
+                : -viewport.height * 2 + -3,
             z: 0,
             rotateX: 0,
             rotateY: Math.PI / 2,
             rotateZ: 0,
-            scaleX: 3,
-            scaleY: 3,
-            scaleZ: 3,
+            scaleX: screenSize == "md" || screenSize == "sm" ? 2 : 3,
+            scaleY: screenSize == "md" || screenSize == "sm" ? 2 : 3,
+            scaleZ: screenSize == "md" || screenSize == "sm" ? 2 : 3,
           },
           3: {
             y: -viewport.height * 3 + -3.5,
@@ -181,31 +193,26 @@ export const Experience = (props) => {
               transparent
               distort={1}
               speed={5}
-              color="black"
+              map={gradientTexture}
             />
           </mesh>
         </Float>
         <Float>
-          <mesh scale={[3.5, 5, 5]} position={[3, 1, -18]}>
+          <mesh
+            scale={[3.5, 5, 5]}
+            position={
+              screenSize == "md" || screenSize == "sm"
+                ? [1, 1, -18]
+                : [2.5, 1, -18]
+            }
+          >
             <sphereGeometry />
             <MeshDistortMaterial
               opacity={0.8}
               transparent
               distort={1}
               speed={5}
-              color="grey"
-            />
-          </mesh>
-        </Float>
-        <Float>
-          <mesh scale={[3.5, 5, 5]} position={[3, 1, -18]}>
-            <sphereGeometry />
-            <MeshDistortMaterial
-              opacity={0.8}
-              transparent
-              distort={1}
-              speed={5}
-              color="white"
+              map={gradientTexture}
             />
           </mesh>
         </Float>

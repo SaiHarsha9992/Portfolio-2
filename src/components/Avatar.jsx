@@ -77,6 +77,12 @@ export function Avatar(props) {
         nodes.AvatarEyelashes001.morphTargetDictionary["eyeBlinkRight"]
       ] = 0;
     }
+    nodes.AvatarHead001.morphTargetInfluences[
+      nodes.AvatarHead001.morphTargetDictionary["mouthDimpleLeft"]
+    ] = 1;
+    nodes.AvatarHead001.morphTargetInfluences[
+      nodes.AvatarHead001.morphTargetDictionary["mouthDimpleRight"]
+    ] = 1;
   });
   return (
     <group {...props} dispose={null} ref={group}>

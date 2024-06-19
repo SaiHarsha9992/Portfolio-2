@@ -8,6 +8,7 @@ import { useGLTF } from "@react-three/drei";
 
 export function Office(props) {
   const { nodes, materials } = useGLTF("models/scene.glb");
+  console.log(nodes.lampu.geometry);
   return (
     <group {...props} dispose={null}>
       <group
@@ -422,19 +423,7 @@ export function Office(props) {
         rotation={[0, -0.202, 0]}
         scale={[0.058, 0.323, 0.058]}
       />
-      <mesh
-        geometry={nodes.lampu.geometry}
-        material={materials.lampu}
-        position={[-3.902, 6.96, 0.933]}
-        scale={[0.266, 0.222, 2.44]}
-      />
-      <mesh
-        geometry={nodes.lampu_terang.geometry}
-        material={nodes.lampu_terang.material}
-        position={[-4.009, 6.941, 0.898]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={[0.145, 2.275, 0.145]}
-      />
+
       <mesh
         geometry={nodes.minum_aer.geometry}
         material={materials["Coffee Procedural"]}

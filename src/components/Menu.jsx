@@ -30,7 +30,7 @@ export const Menu = (props) => {
           zIndex: 20,
           position: "fixed",
           top: "3rem", // top-12
-          right: "3rem", // right-12
+          right: screenSize == "md" || screenSize == "sm" ? "1.5rem" : "3rem", // right-12
           padding: "0.75rem", // p-3
           backgroundColor: "gold", // bg-indigo-600
           width: "2.75rem", // w-11
