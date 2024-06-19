@@ -120,7 +120,7 @@ const AboutSection = (props) => {
         <span
           style={{
             paddingLeft: "0.1rem", // Equivalent to px-1
-            paddingRight: "0.5rem", // Equivalent to px-1
+            paddingRight: "0.3rem", // Equivalent to px-1
             fontStyle: "italic", // Equivalent to italic
           }}
         >
@@ -249,7 +249,7 @@ const SkillsSection = () => {
       <motion.div
         whileInView={"visible"}
         style={{
-          marginBottom: "100px",
+          marginBottom: "130px",
           width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
         }}
       >
@@ -294,7 +294,7 @@ const SkillsSection = () => {
               <div
                 style={{
                   height: "0.5rem",
-                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "80%",
+                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "60%",
                   backgroundColor: "white",
                   borderRadius: "9999px",
                   marginTop: "0.5rem",
@@ -329,7 +329,7 @@ const SkillsSection = () => {
         <div>
           <h2
             style={{
-              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
+              screenSize == "md" || screenSize == "sm" ? "1rem" : "1.5rem",
               fontWeight: "bold",
               marginTop: "2rem",
               color: "white",
@@ -358,7 +358,7 @@ const SkillsSection = () => {
                 <div
                   style={{
                     height: "0.5rem",
-                    width: "100%",
+                    width: "80%",
                     backgroundColor: "white",
                     borderRadius: "9999px",
                     marginTop: "0.5rem",
