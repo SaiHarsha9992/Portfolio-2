@@ -107,7 +107,7 @@ const AboutSection = (props) => {
     <Section mobileTop>
       <h1
         style={{
-          fontSize: screenSize == "md" || screenSize == "sm" ? "0.5rem" : "1rem", // Equivalent to text-6xl
+          fontSize: screenSize == "md" || screenSize == "sm" ? "1.5rem" : "2rem", // Equivalent to text-6xl
           fontWeight: "1000", // Equivalent to font-extrabold
           lineHeight: "1.75", // Equivalent to leading-snug
           padding: 0,
@@ -129,7 +129,7 @@ const AboutSection = (props) => {
       </h1>
       <motion.p
         style={{
-          fontSize: "2.125rem",
+          fontSize: "1.525rem",
           color: "black",
         }}
         initial={{
@@ -250,7 +250,7 @@ const SkillsSection = () => {
         whileInView={"visible"}
         style={{
           marginBottom: "100px",
-          width: screenSize === "sm" || screenSize === "md" ? "80%" : "10%",
+          width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
         }}
       >
         <h2
