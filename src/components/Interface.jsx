@@ -349,7 +349,7 @@ const SkillsSection = () => {
                 key={index}
                 style={{
                   width:
-                    screenSize === "sm" || screenSize === "md" ? "100%" : "140%",
+                    screenSize === "sm" || screenSize === "md" ? "155%" : "320%",
                 }}
               >
                 <motion.h3
