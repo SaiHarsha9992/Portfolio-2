@@ -294,7 +294,7 @@ const SkillsSection = () => {
               <div
                 style={{
                   height: "0.5rem",
-                  width: "100%",
+                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "80%",
                   backgroundColor: "white",
                   borderRadius: "9999px",
                   marginTop: "0.5rem",
@@ -329,7 +329,7 @@ const SkillsSection = () => {
         <div>
           <h2
             style={{
-              fontSize: "3rem",
+              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
               fontWeight: "bold",
               marginTop: "2rem",
               color: "white",
