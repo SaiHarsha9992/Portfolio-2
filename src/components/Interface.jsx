@@ -326,7 +326,13 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        <div>
+         <motion.div
+        whileInView={"visible"}
+        style={{
+          marginBottom: "90px",
+          width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
+        }}
+      >
           <h2
             style={{
             fontSize:
@@ -389,7 +395,8 @@ const SkillsSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
+        
       </motion.div>
     </Section>
   );
