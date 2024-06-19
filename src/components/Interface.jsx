@@ -327,12 +327,11 @@ const SkillsSection = () => {
         </div>
 
          <motion.div
-        whileInView={"visible"}
-        style={{
-          marginBottom: "90px",
-          width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
-        }}
-      >
+          whileInView={"visible"}
+          style={{
+            width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
+          }}
+        >
           <h2
             style={{
             fontSize:
@@ -364,7 +363,7 @@ const SkillsSection = () => {
                 <div
                   style={{
                   height: "0.5rem",
-                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "60%",
+                  width: screenSize == "md" || screenSize == "sm" ? "80%" : "60%",
                   backgroundColor: "white",
                   borderRadius: "9999px",
                   marginTop: "0.5rem",
@@ -396,7 +395,6 @@ const SkillsSection = () => {
             ))}
           </div>
         </motion.div>
-        
       </motion.div>
     </Section>
   );
