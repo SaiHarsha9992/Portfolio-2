@@ -36,7 +36,7 @@ const Section = (props) => {
         maxWidth: "1536px", // max-w-screen-2xl
         margin: "0 auto",
         marginLeft:
-          screenSize == "md" || screenSize == "sm" ? "-90px" : "200px",
+          screenSize == "md" || screenSize == "sm" ? "-90px" : "180px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
