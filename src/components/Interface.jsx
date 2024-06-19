@@ -107,7 +107,7 @@ const AboutSection = (props) => {
     <Section mobileTop>
       <h1
         style={{
-          fontSize: screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem", // Equivalent to text-6xl
+          fontSize: screenSize == "md" || screenSize == "sm" ? "0.5rem" : "1rem", // Equivalent to text-6xl
           fontWeight: "1000", // Equivalent to font-extrabold
           lineHeight: "1.75", // Equivalent to leading-snug
           padding: 0,
@@ -423,6 +423,8 @@ const ContactSection = () => {
         style={{
           paddingRight:
             screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
+          paddingBottom:
+            screenSize == "md" || screenSize == "sm" ? "0px" : "100px",
         }}
       >
         <h2
