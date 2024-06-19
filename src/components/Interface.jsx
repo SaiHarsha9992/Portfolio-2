@@ -329,11 +329,11 @@ const SkillsSection = () => {
         <div>
           <h2
             style={{
-              screenSize == "md" || screenSize == "sm" ? "1rem" : "1.5rem",
-              fontWeight: "bold",
-              marginTop: "2rem",
-              color: "white",
-            }}
+            fontSize:
+              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
+            fontWeight: "bold",
+            color: "white",
+          }}
           >
             Languages
           </h2>
