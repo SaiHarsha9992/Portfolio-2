@@ -333,16 +333,17 @@ const SkillsSection = () => {
           }}
         >
           <h2
-            style={{
+          style={{
             fontSize:
               screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
             fontWeight: "bold",
             color: "white",
           }}
-          >
+          className="text-5xl font-bold"
+        >
             Languages
           </h2>
-          <div style={{ marginTop: "1rem" }}>
+          <div className="mt-8 space-y-4" style={{ marginTop: "10px" }}>
             {languages.map((lng, index) => (
               <div
                 key={index}
@@ -352,46 +353,61 @@ const SkillsSection = () => {
                 }}
               >
                 <motion.h3
-                  style={{
-                    fontSize: "1rem",
-                    fontWeight: "bold",
-                    color: "white",
-                  }}
-                >
+                style={{
+                  fontSize:
+                    screenSize == "md" || screenSize == "sm"
+                      ? "0.8rem"
+                      : "1rem",
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+                initial={{
+                  opacity: 0,
+                }}
+                variants={{
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      duration: 1,
+                      delay: 1 + index * 0.2,
+                    },
+                  },
+                }}
+              >
                   {lng.title}
                 </motion.h3>
                 <div
-                  style={{
+                style={{
                   height: "0.5rem",
-                  width: screenSize == "md" || screenSize == "sm" ? "80%" : "60%",
+                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "60%",
                   backgroundColor: "white",
                   borderRadius: "9999px",
                   marginTop: "0.5rem",
                 }}
-                >
-                  <motion.div
-                    style={{
-                      height: "100%",
-                      backgroundColor: "black",
-                      borderRadius: "9999px",
-                      width: `${lng.level}%`,
-                    }}
-                    initial={{
-                      scaleX: 0,
-                      originX: 0,
-                    }}
-                    variants={{
-                      visible: {
-                        scaleX: 1,
-                        transition: {
-                          duration: 1,
-                          delay: 2 + index * 0.2,
-                        },
+              >
+                <motion.div
+                  style={{
+                    height: "100%",
+                    width: `${lng.level}%`,
+                    backgroundColor: "black",
+                    borderRadius: "9999px",
+                  }}
+                  initial={{
+                    scaleX: 0,
+                    originX: 0,
+                  }}
+                  variants={{
+                    visible: {
+                      scaleX: 1,
+                      transition: {
+                        duration: 1,
+                        delay: 1 + index * 0.2,
                       },
-                    }}
-                  />
-                </div>
+                    },
+                  }}
+                />
               </div>
+            </div>
             ))}
           </div>
         </motion.div>
