@@ -249,7 +249,7 @@ const SkillsSection = () => {
       <motion.div
         whileInView={"visible"}
         style={{
-          marginBottom: "130px",
+          marginBottom: "90px",
           width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
         }}
       >
@@ -357,12 +357,12 @@ const SkillsSection = () => {
                 </motion.h3>
                 <div
                   style={{
-                    height: "0.5rem",
-                    width: "80%",
-                    backgroundColor: "white",
-                    borderRadius: "9999px",
-                    marginTop: "0.5rem",
-                  }}
+                  height: "0.5rem",
+                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "60%",
+                  backgroundColor: "white",
+                  borderRadius: "9999px",
+                  marginTop: "0.5rem",
+                }}
                 >
                   <motion.div
                     style={{
