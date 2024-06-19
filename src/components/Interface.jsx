@@ -249,7 +249,7 @@ const SkillsSection = () => {
       <motion.div
         whileInView={"visible"}
         style={{
-          marginBottom: screenSize === "sm" || screenSize === "md" ? "90px":"140px",
+          marginBottom: screenSize === "sm" || screenSize === "md" ? "90px":"190px",
           width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
         }}
       >
@@ -626,7 +626,7 @@ const ProjectsSection = () => {
           marginTop:
             screenSize == "md" || screenSize == "sm" ? "200px" : "200px",
           marginLeft:
-            screenSize == "md" || screenSize == "sm" ? "-20px" : "280px",
+            screenSize == "md" || screenSize == "sm" ? "-20px" : "240px",
           gap: "2rem", // Equivalent to gap-8
           alignItems: "center",
           justifyContent: "left",
