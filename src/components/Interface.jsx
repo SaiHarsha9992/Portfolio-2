@@ -343,7 +343,7 @@ const SkillsSection = () => {
                 key={index}
                 style={{
                   width:
-                    screenSize === "sm" || screenSize === "md" ? "100%" : "",
+                    screenSize === "sm" || screenSize === "md" ? "100%" : "60%",
                 }}
               >
                 <motion.h3
@@ -424,7 +424,7 @@ const ContactSection = () => {
           paddingRight:
             screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
           paddingBottom:
-            screenSize == "md" || screenSize == "sm" ? "0px" : "100px",
+            screenSize == "md" || screenSize == "sm" ? "100px" : "150px",
         }}
       >
         <h2
