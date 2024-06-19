@@ -36,7 +36,7 @@ const Section = (props) => {
         maxWidth: "1536px", // max-w-screen-2xl
         margin: "0 auto",
         marginLeft:
-          screenSize == "md" || screenSize == "sm" ? "-90px" : "180px",
+          screenSize == "md" || screenSize == "sm" ? "-90px" : "160px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -107,7 +107,7 @@ const AboutSection = (props) => {
     <Section mobileTop>
       <h1
         style={{
-          fontSize: screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem", // Equivalent to text-6xl
+          fontSize: screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem", // Equivalent to text-6xl
           fontWeight: "1000", // Equivalent to font-extrabold
           lineHeight: "1.75", // Equivalent to leading-snug
           padding: 0,
@@ -250,13 +250,13 @@ const SkillsSection = () => {
         whileInView={"visible"}
         style={{
           marginBottom: "100px",
-          width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
+          width: screenSize === "sm" || screenSize === "md" ? "80%" : "10%",
         }}
       >
         <h2
           style={{
             fontSize:
-              screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem",
+              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
             fontWeight: "bold",
             color: "white",
           }}
