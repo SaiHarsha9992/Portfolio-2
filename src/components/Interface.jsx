@@ -36,7 +36,7 @@ const Section = (props) => {
         maxWidth: "1536px", // max-w-screen-2xl
         margin: "0 auto",
         marginLeft:
-          screenSize == "md" || screenSize == "sm" ? "-90px" : "200px",
+          screenSize == "md" || screenSize == "sm" ? "-90px" : "160px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -107,7 +107,7 @@ const AboutSection = (props) => {
     <Section mobileTop>
       <h1
         style={{
-          fontSize: screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem", // Equivalent to text-6xl
+          fontSize: screenSize == "md" || screenSize == "sm" ? "1.5rem" : "2rem", // Equivalent to text-6xl
           fontWeight: "1000", // Equivalent to font-extrabold
           lineHeight: "1.75", // Equivalent to leading-snug
           padding: 0,
@@ -120,7 +120,7 @@ const AboutSection = (props) => {
         <span
           style={{
             paddingLeft: "0.1rem", // Equivalent to px-1
-            paddingRight: "0.5rem", // Equivalent to px-1
+            paddingRight: "0.3rem", // Equivalent to px-1
             fontStyle: "italic", // Equivalent to italic
           }}
         >
@@ -129,7 +129,7 @@ const AboutSection = (props) => {
       </h1>
       <motion.p
         style={{
-          fontSize: "2.125rem",
+          fontSize: "1.525rem",
           color: "black",
         }}
         initial={{
@@ -249,14 +249,14 @@ const SkillsSection = () => {
       <motion.div
         whileInView={"visible"}
         style={{
-          marginBottom: "100px",
+          marginBottom: screenSize === "sm" || screenSize === "md" ? "90px":"190px",
           width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
         }}
       >
         <h2
           style={{
             fontSize:
-              screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem",
+              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
             fontWeight: "bold",
             color: "white",
           }}
@@ -294,7 +294,7 @@ const SkillsSection = () => {
               <div
                 style={{
                   height: "0.5rem",
-                  width: "100%",
+                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "60%",
                   backgroundColor: "white",
                   borderRadius: "9999px",
                   marginTop: "0.5rem",
@@ -326,70 +326,91 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        <div>
+         <motion.div
+          whileInView={"visible"}
+          style={{
+            width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
+          }}
+        >
           <h2
-            style={{
-              fontSize: "3rem",
-              fontWeight: "bold",
-              marginTop: "2rem",
-              color: "white",
-            }}
-          >
+          style={{
+            fontSize:
+              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
+            fontWeight: "bold",
+            color: "white",
+          }}
+          className="text-5xl font-bold"
+        >
             Languages
           </h2>
-          <div style={{ marginTop: "1rem" }}>
+          <div className="mt-8 space-y-4" style={{ marginTop: "10px" }}>
             {languages.map((lng, index) => (
               <div
                 key={index}
                 style={{
                   width:
-                    screenSize === "sm" || screenSize === "md" ? "100%" : "",
+                    screenSize === "sm" || screenSize === "md" ? "122%" : "320%",
                 }}
               >
                 <motion.h3
-                  style={{
-                    fontSize: "1rem",
-                    fontWeight: "bold",
-                    color: "white",
-                  }}
-                >
+                style={{
+                  fontSize:
+                    screenSize == "md" || screenSize == "sm"
+                      ? "0.8rem"
+                      : "1rem",
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+                initial={{
+                  opacity: 0,
+                }}
+                variants={{
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      duration: 1,
+                      delay: 1 + index * 0.2,
+                    },
+                  },
+                }}
+              >
                   {lng.title}
                 </motion.h3>
                 <div
+                style={{
+                  height: "0.5rem",
+                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "60%",
+                  backgroundColor: "white",
+                  borderRadius: "9999px",
+                  marginTop: "0.5rem",
+                }}
+              >
+                <motion.div
                   style={{
-                    height: "0.5rem",
-                    width: "100%",
-                    backgroundColor: "white",
+                    height: "100%",
+                    width: `${lng.level}%`,
+                    backgroundColor: "black",
                     borderRadius: "9999px",
-                    marginTop: "0.5rem",
                   }}
-                >
-                  <motion.div
-                    style={{
-                      height: "100%",
-                      backgroundColor: "black",
-                      borderRadius: "9999px",
-                      width: `${lng.level}%`,
-                    }}
-                    initial={{
-                      scaleX: 0,
-                      originX: 0,
-                    }}
-                    variants={{
-                      visible: {
-                        scaleX: 1,
-                        transition: {
-                          duration: 1,
-                          delay: 2 + index * 0.2,
-                        },
+                  initial={{
+                    scaleX: 0,
+                    originX: 0,
+                  }}
+                  variants={{
+                    visible: {
+                      scaleX: 1,
+                      transition: {
+                        duration: 1,
+                        delay: 1 + index * 0.2,
                       },
-                    }}
-                  />
-                </div>
+                    },
+                  }}
+                />
               </div>
+            </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     </Section>
   );
@@ -423,6 +444,8 @@ const ContactSection = () => {
         style={{
           paddingRight:
             screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
+          paddingBottom:
+            screenSize == "md" || screenSize == "sm" ? "100px" : "300px",
         }}
       >
         <h2
@@ -603,7 +626,7 @@ const ProjectsSection = () => {
           marginTop:
             screenSize == "md" || screenSize == "sm" ? "200px" : "200px",
           marginLeft:
-            screenSize == "md" || screenSize == "sm" ? "-20px" : "370px",
+            screenSize == "md" || screenSize == "sm" ? "-20px" : "240px",
           gap: "2rem", // Equivalent to gap-8
           alignItems: "center",
           justifyContent: "left",
