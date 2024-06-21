@@ -17,14 +17,7 @@ export function Office(props) {
         position={[-3.12, 3.126, -2.152]}
         scale={[0.98, 0.144, 0.329]}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.tatakan_laptop.geometry}
-        material={materials.PaletteMaterial002}
-        position={[-3.61, 3.375, 1.255]}
-        scale={[1.003, 11.242, 1.003]}
-      />
+
       <mesh
         castShadow
         receiveShadow
@@ -32,6 +25,15 @@ export function Office(props) {
         material={materials["Wood.119"]}
         position={[1.943, 4.753, 4.108]}
         scale={[0.326, 0.198, 0.049]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.kamera.geometry}
+        material={materials.PaletteMaterial003}
+        position={[-2.332, 3.125, 1.042]}
+        rotation={[0, -0.519, 0]}
+        scale={[2.816, 11.833, 25.747]}
       />
 
       <mesh
