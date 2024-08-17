@@ -192,6 +192,10 @@ const skills = [
     level: 70,
   },
   {
+    title: "Nextjs",
+    level: 60,
+  },
+  {
     title: "Nodejs",
     level: 70,
   },
