@@ -449,7 +449,7 @@ const ContactSection = () => {
           paddingRight:
             screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
           paddingBottom:
-            screenSize == "md" || screenSize == "sm" ? "350px" : "400px",
+            screenSize == "md" || screenSize == "sm" ? "450px" : "500px",
         }}
       >
         <h2
