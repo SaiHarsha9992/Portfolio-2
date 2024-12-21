@@ -133,36 +133,30 @@ const AboutSection = (props) => {
         </span>
       </h1>
       <motion.p
-  style={{
-    fontSize: "1.525rem",
-    color: "white",
-    backgroundColor: "rgba(0, 0, 0, 0.7)", // Semi-transparent background
-    padding: "20px",
-    borderRadius: "10px", // Rounded corners for a polished look
-    maxWidth: "500px", // Limit the width for better readability
-    margin: "0 auto", // Center the text block
-    textAlign: "center", // Align text to the center
-  }}
-  initial={{
-    opacity: 0,
-    y: 25,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-  }}
-  transition={{
-    duration: 1,
-    delay: 1.5,
-  }}
->
-  A Passionate FullStack Developer
-  <br />
-  from India
-  <br />
-  <br />
-  If any help
-</motion.p>
+        style={{
+          fontSize: "1.525rem",
+          color: "gold",
+        }}
+        initial={{
+          opacity: 0,
+          y: 25,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 1,
+          delay: 1.5,
+        }}
+      >
+        A Passionate FullStack Developer
+        <br />
+        from India
+        <br />
+        <br />
+        if any help
+      </motion.p>
 
       <motion.button
         onClick={() => setSection(3)}
@@ -461,8 +455,6 @@ const ContactSection = () => {
         style={{
           paddingRight:
             screenSize === "md" || screenSize === "sm" ? "50px" : "0px",
-          paddingBottom:
-            screenSize == "md" || screenSize == "sm" ? "650px" : "500px",
         }}
       >
         <h2
