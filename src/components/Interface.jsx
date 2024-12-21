@@ -85,10 +85,10 @@ export const Interface = (props) => {
 
 const AboutSection = (props) => {
   const { setSection } = props;
-  let [screenSize, setScreenSize] = useState(
+  const [screenSize, setScreenSize] = useState(
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
   );
-  const { children, mobileTop } = props;
+
   const updateScreenSize = () => {
     if (window.innerWidth < 768) {
       setScreenSize("sm");
@@ -106,13 +106,14 @@ const AboutSection = (props) => {
     updateScreenSize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <Section mobileTop>
       <h1
         style={{
-          fontSize: screenSize == "md" || screenSize == "sm" ? "1.5rem" : "2rem", // Equivalent to text-6xl
-          fontWeight: "1000", // Equivalent to font-extrabold
-          lineHeight: "1.75", // Equivalent to leading-snug
+          fontSize: screenSize === "md" || screenSize === "sm" ? "1.5rem" : "2rem",
+          fontWeight: "1000",
+          lineHeight: "1.75",
           padding: 0,
           margin: 0,
           color: "white",
@@ -122,9 +123,9 @@ const AboutSection = (props) => {
         <br />
         <span
           style={{
-            paddingLeft: "0.1rem", // Equivalent to px-1
-            paddingRight: "0.3rem", // Equivalent to px-1
-            fontStyle: "italic", // Equivalent to italic
+            paddingLeft: "0.1rem",
+            paddingRight: "0.3rem",
+            fontStyle: "italic",
           }}
         >
           Gadu Kedarinadh Sai Harsha
@@ -158,14 +159,13 @@ const AboutSection = (props) => {
       <motion.button
         onClick={() => setSection(3)}
         style={{
-          backgroundColor: "white", // Tailwind's indigo-600
+          backgroundColor: "white",
           color: "black",
-          padding: "1rem 2rem", // py-4 px-8
-          borderRadius: "0.5rem", // rounded-lg
-          fontWeight: "bold", // font-bold
-          fontSize: "1.25rem", // text-lg
-          marginTop:
-            screenSize == "md" || screenSize == "sm" ? "0.8rem" : "1rem",
+          padding: "1rem 2rem",
+          borderRadius: "0.5rem",
+          fontWeight: "bold",
+          fontSize: "1.25rem",
+          marginTop: screenSize === "md" || screenSize === "sm" ? "0.8rem" : "1rem",
         }}
         initial={{
           opacity: 0,
@@ -185,6 +185,7 @@ const AboutSection = (props) => {
     </Section>
   );
 };
+
 const skills = [
   {
     title: "Threejs / React Three Fiber",
