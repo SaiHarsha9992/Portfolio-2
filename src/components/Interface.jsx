@@ -500,7 +500,7 @@ const ContactSection = () => {
                 name="name"
                 id="name"
                 style={{
-                  width: "100%",
+                  width: "90%",
                   borderRadius: "0.375rem",
                   borderWidth: "0",
                   color: "#000000",
@@ -525,7 +525,7 @@ const ContactSection = () => {
                 name="email"
                 id="email"
                 style={{
-                  width: "100%",
+                  width: "90%",
                   borderRadius: "0.375rem",
                   borderWidth: "0",
                   color: "#000000",
@@ -557,7 +557,7 @@ const ContactSection = () => {
                 id="message"
                 style={{
                   height: "8rem",
-                  width: "100%",
+                  width: "90%",
                   borderRadius: "0.375rem",
                   borderWidth: "0",
                   color: "#000000",
