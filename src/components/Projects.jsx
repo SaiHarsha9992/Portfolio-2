@@ -8,23 +8,17 @@ import { animate, useMotionValue } from "framer-motion";
 
 export const projects = [
   {
-    title: "Weather API",
-    url: "https://github.com/SaiHarsha9992/Weather-Api",
-    image: "/images/WeatherAPI.png",
-    description: "Creating Weather Forcast Using Nodejs HTML5 CSS",
-  },
-  {
-    title: "Portfolio",
-    url: "https://www.linkedin.com/posts/g-kedarinadh-sai-harsha_webdevelopment-web-webdesign-activity-7151627289800114177-8SPB?utm_source=share&utm_medium=member_desktop",
-    image: "/images/Portfolio.png",
-    description: "I Created My first portfolio with simple html css js",
-  },
-  {
     title: "LEO AI ASSISTANT",
     url: "https://www.linkedin.com/posts/g-kedarinadh-sai-harsha_leoai-leoassistant-ai-activity-7170360145581993984-fkAi?utm_source=share&utm_medium=member_desktop",
     image: "/images/LeoAi Assistant.png",
     description:
       "LEO AI Assistant is an innovative project that I've developed",
+  },
+  {
+    title: "3D Portfolio",
+    url: "https://gksharshaportfolio.vercel.app/",
+    image: "/images/Portfolio.png",
+    description: "I Created 3D portfolio with 3d model of mine with interactive creation",
   },
   {
     title: "LEO AI ASSISTANT 2.0",
@@ -35,9 +29,15 @@ export const projects = [
   },
   {
     title: "VIKRAM AI ASSISTANT",
-    url: "https://www.linkedin.com/posts/g-kedarinadh-sai-harsha_wawasensai-blender-3dmodeling-activity-7205142075825147904-Klg8?utm_source=share&utm_medium=member_desktop",
+    url: "https://www.linkedin.com/posts/g-kedarinadh-sai-harsha_vikramai-artificialintelligence-ai-ugcPost-7224084435606941696-JVnn?utm_source=share&utm_medium=member_desktop",
     image: "/images/Vikram Ai Assistant.png",
-    description: "Present Creating a master of Ai Assistant",
+    description: "I updated the ai assistant with more security adding",
+  },
+  {
+    title: "H-Commerce",
+    url: "https://h-mart-ecommerce.vercel.app/",
+    image: "/images/H-Commerce.png",
+    description: "simple e-commerce web site",
   },
 ];
 const Project = (props) => {
