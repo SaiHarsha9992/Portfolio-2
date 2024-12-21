@@ -9,6 +9,7 @@ const Section = (props) => {
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
   );
   const { children, mobileTop } = props;
+
   const updateScreenSize = () => {
     if (window.innerWidth < 768) {
       setScreenSize("sm");
@@ -26,22 +27,21 @@ const Section = (props) => {
     updateScreenSize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  console.log(screenSize);
+
   return (
     <motion.section
       style={{
         height: "75vh",
         width: mobileTop ? "80vw" : "100vw",
         padding: "8rem",
-        maxWidth: "1536px", // max-w-screen-2xl
+        maxWidth: "1536px",
         margin: "0 auto",
         marginLeft:
-          screenSize == "md" || screenSize == "sm" ? "-90px" : "160px",
+          screenSize === "md" || screenSize === "sm" ? "-90px" : "160px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        justifyContent:
-          screenSize == "md" || screenSize == "sm" ? "start" : "center",
+        justifyContent: screenSize === "md" || screenSize === "sm" ? "start" : "center",
       }}
       initial={{
         opacity: 0,
@@ -61,8 +61,6 @@ const Section = (props) => {
   );
 };
 
-
-
 export const Interface = (props) => {
   const { setSection } = props;
   return (
@@ -76,19 +74,18 @@ export const Interface = (props) => {
       }}
     >
       <AboutSection setSection={setSection} />
-      <SkillsSection setSection={setSection} />
-      <ProjectsSection setSection={setSection} />
-      <ContactSection setSection={setSection} />
+      <SkillsSection />
+      <ContactSection />
     </div>
   );
 };
 
 const AboutSection = (props) => {
   const { setSection } = props;
-  let [screenSize, setScreenSize] = useState(
+  const [screenSize, setScreenSize] = useState(
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
   );
-  const { children, mobileTop } = props;
+
   const updateScreenSize = () => {
     if (window.innerWidth < 768) {
       setScreenSize("sm");
@@ -106,13 +103,14 @@ const AboutSection = (props) => {
     updateScreenSize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <Section mobileTop>
       <h1
         style={{
-          fontSize: screenSize == "md" || screenSize == "sm" ? "1.5rem" : "2rem", // Equivalent to text-6xl
-          fontWeight: "1000", // Equivalent to font-extrabold
-          lineHeight: "1.75", // Equivalent to leading-snug
+          fontSize: screenSize === "md" || screenSize === "sm" ? "1.5rem" : "2rem",
+          fontWeight: "1000",
+          lineHeight: "1.75",
           padding: 0,
           margin: 0,
           color: "white",
@@ -122,9 +120,9 @@ const AboutSection = (props) => {
         <br />
         <span
           style={{
-            paddingLeft: "0.1rem", // Equivalent to px-1
-            paddingRight: "0.3rem", // Equivalent to px-1
-            fontStyle: "italic", // Equivalent to italic
+            paddingLeft: "0.1rem",
+            paddingRight: "0.3rem",
+            fontStyle: "italic",
           }}
         >
           Gadu Kedarinadh Sai Harsha
@@ -158,14 +156,13 @@ const AboutSection = (props) => {
       <motion.button
         onClick={() => setSection(3)}
         style={{
-          backgroundColor: "white", // Tailwind's indigo-600
+          backgroundColor: "white",
           color: "black",
-          padding: "1rem 2rem", // py-4 px-8
-          borderRadius: "0.5rem", // rounded-lg
-          fontWeight: "bold", // font-bold
-          fontSize: "1.25rem", // text-lg
-          marginTop:
-            screenSize == "md" || screenSize == "sm" ? "0.8rem" : "1rem",
+          padding: "1rem 2rem",
+          borderRadius: "0.5rem",
+          fontWeight: "bold",
+          fontSize: "1.25rem",
+          marginTop: screenSize === "md" || screenSize === "sm" ? "0.8rem" : "1rem",
         }}
         initial={{
           opacity: 0,
@@ -185,246 +182,24 @@ const AboutSection = (props) => {
     </Section>
   );
 };
+
 const skills = [
-  {
-    title: "Threejs / React Three Fiber",
-    level: 60,
-  },
-  {
-    title: "React",
-    level: 70,
-  },
-  {
-    title: "Nextjs",
-    level: 60,
-  },
-  {
-    title: "Nodejs",
-    level: 70,
-  },
-  {
-    title: "Javascript",
-    level: 80,
-  },
-  {
-    title: "3D Modeling",
-    level: 40,
-  },
-  {
-    title: "Python",
-    level: 80,
-  },
+  { title: "Threejs / React Three Fiber", level: 60 },
+  { title: "React", level: 70 },
+  { title: "Nextjs", level: 60 },
+  { title: "Nodejs", level: 70 },
+  { title: "Javascript", level: 80 },
+  { title: "3D Modeling", level: 40 },
+  { title: "Python", level: 80 },
 ];
 
 const languages = [
-  {
-    title: "Telugu",
-    level: 100,
-  },
-  {
-    title: "English",
-    level: 90,
-  },
-  {
-    title: "Hindi",
-    level: 40,
-  },
+  { title: "Telugu", level: 100 },
+  { title: "English", level: 90 },
+  { title: "Hindi", level: 40 },
 ];
+
 const SkillsSection = () => {
-  let [screenSize, setScreenSize] = useState(
-    window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
-  );
-  const updateScreenSize = () => {
-    if (window.innerWidth < 768) {
-      setScreenSize("sm");
-    } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-      setScreenSize("md");
-    } else {
-      setScreenSize("lg");
-    }
-  };
-
-  useEffect(() => {
-    const handleResize = () => updateScreenSize();
-    window.addEventListener("resize", handleResize);
-    // Initial check
-    updateScreenSize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  return (
-    <Section>
-      <motion.div
-        whileInView={"visible"}
-        style={{
-          marginBottom: screenSize === "sm" || screenSize === "md" ? "90px":"190px",
-          width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
-        }}
-      >
-        <h2
-          style={{
-            fontSize:
-              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
-            fontWeight: "bold",
-            color: "white",
-          }}
-          className="text-5xl font-bold"
-        >
-          Skills
-        </h2>
-        <div className="mt-8 space-y-4" style={{ marginTop: "10px" }}>
-          {skills.map((skill, index) => (
-            <div className="w-64" key={index}>
-              <motion.h3
-                style={{
-                  fontSize:
-                    screenSize == "md" || screenSize == "sm"
-                      ? "0.8rem"
-                      : "1rem",
-                  fontWeight: "bold",
-                  color: "white",
-                }}
-                initial={{
-                  opacity: 0,
-                }}
-                variants={{
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      duration: 1,
-                      delay: 1 + index * 0.2,
-                    },
-                  },
-                }}
-              >
-                {skill.title}
-              </motion.h3>
-              <div
-                style={{
-                  height: "0.5rem",
-                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "60%",
-                  backgroundColor: "white",
-                  borderRadius: "9999px",
-                  marginTop: "0.5rem",
-                }}
-              >
-                <motion.div
-                  style={{
-                    height: "100%",
-                    width: `${skill.level}%`,
-                    backgroundColor: "black",
-                    borderRadius: "9999px",
-                  }}
-                  initial={{
-                    scaleX: 0,
-                    originX: 0,
-                  }}
-                  variants={{
-                    visible: {
-                      scaleX: 1,
-                      transition: {
-                        duration: 1,
-                        delay: 1 + index * 0.2,
-                      },
-                    },
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-         <motion.div
-          whileInView={"visible"}
-          style={{
-            width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
-          }}
-        >
-          <h2
-          style={{
-            fontSize:
-              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
-            fontWeight: "bold",
-            color: "white",
-          }}
-          className="text-5xl font-bold"
-        >
-            Languages
-          </h2>
-          <div className="mt-8 space-y-4" style={{ marginTop: "10px" }}>
-            {languages.map((lng, index) => (
-              <div
-                key={index}
-                style={{
-                  width:
-                    screenSize === "sm" || screenSize === "md" ? "122%" : "320%",
-                }}
-              >
-                <motion.h3
-                style={{
-                  fontSize:
-                    screenSize == "md" || screenSize == "sm"
-                      ? "0.8rem"
-                      : "1rem",
-                  fontWeight: "bold",
-                  color: "white",
-                }}
-                initial={{
-                  opacity: 0,
-                }}
-                variants={{
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      duration: 1,
-                      delay: 1 + index * 0.2,
-                    },
-                  },
-                }}
-              >
-                  {lng.title}
-                </motion.h3>
-                <div
-                style={{
-                  height: "0.5rem",
-                  width: screenSize == "md" || screenSize == "sm" ? "100%" : "60%",
-                  backgroundColor: "white",
-                  borderRadius: "9999px",
-                  marginTop: "0.5rem",
-                }}
-              >
-                <motion.div
-                  style={{
-                    height: "100%",
-                    width: `${lng.level}%`,
-                    backgroundColor: "black",
-                    borderRadius: "9999px",
-                  }}
-                  initial={{
-                    scaleX: 0,
-                    originX: 0,
-                  }}
-                  variants={{
-                    visible: {
-                      scaleX: 1,
-                      transition: {
-                        duration: 1,
-                        delay: 1 + index * 0.2,
-                      },
-                    },
-                  }}
-                />
-              </div>
-            </div>
-            ))}
-          </div>
-        </motion.div>
-      </motion.div>
-    </Section>
-  );
-};
-
-const ContactSection = () => {
-  const [state, handleSubmit] = useForm("xwkgggvw");
   const [screenSize, setScreenSize] = useState(
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
   );
@@ -442,159 +217,239 @@ const ContactSection = () => {
   useEffect(() => {
     const handleResize = () => updateScreenSize();
     window.addEventListener("resize", handleResize);
-    updateScreenSize(); // Initial check
+    // Initial check
+    updateScreenSize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <Section
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "100vh", // Ensures full viewport height
-        padding: "20px", // Adjust padding for mobile and desktop
-        boxSizing: "border-box",
-      }}
-    >
+    <Section>
+      <motion.div
+        whileInView={"visible"}
+        style={{
+          marginBottom: screenSize === "sm" || screenSize === "md" ? "90px" : "190px",
+          width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: screenSize === "md" || screenSize === "sm" ? "1rem" : "2rem",
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
+          Skills
+        </h2>
+        <div className="mt-8 space-y-4">
+          {skills.map((skill, index) => (
+            <div key={index} style={{ width: "100%" }}>
+              <motion.h3
+                style={{
+                  fontSize: screenSize === "md" || screenSize === "sm" ? "0.8rem" : "1rem",
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+                initial={{ opacity: 0 }}
+                whileInView={{
+                  opacity: 1,
+                  transition: {
+                    duration: 1,
+                    delay: 1 + index * 0.2,
+                  },
+                }}
+              >
+                {skill.title}
+              </motion.h3>
+              <div
+                style={{
+                  height: "0.5rem",
+                  width: screenSize === "md" || screenSize === "sm" ? "100%" : "60%",
+                  backgroundColor: "white",
+                  borderRadius: "9999px",
+                  marginTop: "0.5rem",
+                }}
+              >
+                <motion.div
+                  style={{
+                    height: "100%",
+                    width: `${skill.level}%`,
+                    backgroundColor: "black",
+                    borderRadius: "9999px",
+                  }}
+                  initial={{ scaleX: 0, originX: 0 }}
+                  whileInView={{
+                    scaleX: 1,
+                    transition: {
+                      duration: 1,
+                      delay: 1 + index * 0.2,
+                    },
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      <motion.div
+        whileInView={"visible"}
+        style={{
+          width: screenSize === "sm" || screenSize === "md" ? "80%" : "30%",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: screenSize === "md" || screenSize === "sm" ? "1rem" : "2rem",
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
+          Languages
+        </h2>
+        <div className="mt-8 space-y-4">
+          {languages.map((language, index) => (
+            <div key={index} style={{ width: "100%" }}>
+              <motion.h3
+                style={{
+                  fontSize: screenSize === "md" || screenSize === "sm" ? "0.8rem" : "1rem",
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+                initial={{ opacity: 0 }}
+                whileInView={{
+                  opacity: 1,
+                  transition: {
+                    duration: 1,
+                    delay: 1 + index * 0.2,
+                  },
+                }}
+              >
+                {language.title}
+              </motion.h3>
+              <div
+                style={{
+                  height: "0.5rem",
+                  width: "100%",
+                  backgroundColor: "white",
+                  borderRadius: "9999px",
+                  marginTop: "0.5rem",
+                }}
+              >
+                <motion.div
+                  style={{
+                    height: "100%",
+                    width: `${language.level}%`,
+                    backgroundColor: "black",
+                    borderRadius: "9999px",
+                  }}
+                  initial={{ scaleX: 0, originX: 0 }}
+                  whileInView={{
+                    scaleX: 1,
+                    transition: {
+                      duration: 1,
+                      delay: 1 + index * 0.2,
+                    },
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </Section>
+  );
+};
+
+
+const ContactSection = () => {
+  const [state, handleSubmit] = useForm("your-form-id");
+
+  if (state.succeeded) {
+    return <p style={{ color: 'white', fontSize: '1.2rem' }}>Thanks for your submission!</p>;
+  }
+
+  return (
+    <Section>
       <h2
         style={{
-          fontSize: screenSize === "sm" ? "2rem" : "3rem",
+          fontSize: "2rem",
           fontWeight: "bold",
-          textAlign: "center",
-          marginBottom: "1rem",
+          color: "white",
         }}
       >
-        Contact me
+        Contact
       </h2>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+        <label htmlFor="name" style={{ marginBottom: "1rem", color: "white" }}>
+          Name
+          <input
+            id="name"
+            type="text"
+            name="name"
+            required
+            style={{
+              padding: "0.5rem",
+              marginBottom: "1rem",
+              fontSize: "1rem",
+              borderRadius: "0.5rem",
+              border: "1px solid #ccc",
+            }}
+          />
+        </label>
 
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "600px", // Maximum width for form on large screens
-          padding: "2rem",
-          backgroundColor: "grey",
-          borderRadius: "0.375rem",
-          opacity: 0.9,
-          marginBottom: "2rem", // Space between the form and bottom
-        }}
-      >
-        {state.succeeded ? (
-          <p style={{ color: "gold", textAlign: "center" }}>Thanks for your message!</p>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <label
-              htmlFor="name"
-              style={{
-                fontWeight: "medium",
-                color: "#000000",
-                marginTop: "0.25rem",
-                marginBottom: "0.25rem",
-              }}
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              style={{
-                width: "100%",
-                borderRadius: "0.375rem",
-                borderWidth: "0",
-                color: "#000000",
-                boxShadow:
-                  "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                placeholderColor: "rgba(0,0,0,0.4)",
-                padding: "0.75rem",
-                marginBottom: "1rem",
-              }}
-            />
-            <label
-              htmlFor="email"
-              style={{
-                fontWeight: "medium",
-                color: "#000000",
-                marginTop: "1rem",
-              }}
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              style={{
-                width: "100%",
-                borderRadius: "0.375rem",
-                borderWidth: "0",
-                color: "#000000",
-                boxShadow:
-                  "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                placeholderColor: "rgba(0,0,0,0.4)",
-                padding: "0.75rem",
-                marginBottom: "1rem",
-              }}
-            />
-            <ValidationError
-              style={{
-                margin: 1,
-                color: "red",
-              }}
-              errors={state.errors}
-            />
-            <label
-              htmlFor="message"
-              style={{
-                fontWeight: "medium",
-                color: "#000000",
-                marginTop: "1rem",
-              }}
-            >
-              Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              style={{
-                height: "8rem",
-                width: "100%",
-                borderRadius: "0.375rem",
-                borderWidth: "0",
-                color: "#000000",
-                boxShadow:
-                  "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                placeholderColor: "rgba(0,0,0,0.4)",
-                padding: "0.75rem",
-                marginBottom: "1rem",
-              }}
-            />
-            <ValidationError
-              style={{
-                margin: 1,
-                color: "red",
-              }}
-              errors={state.errors}
-            />
-            <button
-              disabled={state.submitting}
-              style={{
-                backgroundColor: "black",
-                color: "#FFFFFF",
-                padding: "1rem 2rem",
-                borderRadius: "0.5rem",
-                fontWeight: "bold",
-                fontSize: "1.25rem",
-                marginTop: "2.5rem",
-                width: "100%", // Ensure the button fills its container
-              }}
-            >
-              Submit
-            </button>
-          </form>
-        )}
-      </div>
+        <label htmlFor="email" style={{ marginBottom: "1rem", color: "white" }}>
+          Email
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            style={{
+              padding: "0.5rem",
+              marginBottom: "1rem",
+              fontSize: "1rem",
+              borderRadius: "0.5rem",
+              border: "1px solid #ccc",
+            }}
+          />
+        </label>
+
+        <label htmlFor="message" style={{ marginBottom: "1rem", color: "white" }}>
+          Message
+          <textarea
+            id="message"
+            name="message"
+            required
+            style={{
+              padding: "0.5rem",
+              marginBottom: "1rem",
+              fontSize: "1rem",
+              borderRadius: "0.5rem",
+              border: "1px solid #ccc",
+              minHeight: "100px",
+            }}
+          />
+        </label>
+
+        <button
+          type="submit"
+          disabled={state.submitting}
+          style={{
+            padding: "1rem 2rem",
+            backgroundColor: "black",
+            color: "white",
+            fontSize: "1rem",
+            borderRadius: "0.5rem",
+            cursor: "pointer",
+            border: "none",
+            transition: "background-color 0.3s ease",
+          }}
+          onMouseEnter={(e) => e.target.style.backgroundColor = "#333"}
+          onMouseLeave={(e) => e.target.style.backgroundColor = "black"}
+        >
+          Send
+        </button>
+      </form>
     </Section>
   );
 };
