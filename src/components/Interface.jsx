@@ -425,9 +425,10 @@ const SkillsSection = () => {
 
 const ContactSection = () => {
   const [state, handleSubmit] = useForm("xwkgggvw");
-  let [screenSize, setScreenSize] = useState(
+  const [screenSize, setScreenSize] = useState(
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
   );
+
   const updateScreenSize = () => {
     if (window.innerWidth < 768) {
       setScreenSize("sm");
@@ -441,44 +442,40 @@ const ContactSection = () => {
   useEffect(() => {
     const handleResize = () => updateScreenSize();
     window.addEventListener("resize", handleResize);
-    // Initial check
-    updateScreenSize();
+    updateScreenSize(); // Initial check
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <Section>
       <div
         style={{
-          paddingRight:
-            screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
-          paddingBottom:
-            screenSize == "md" || screenSize == "sm" ? "450px" : "500px",
+          paddingRight: screenSize === "md" || screenSize === "sm" ? "50px" : "0px",
+          paddingBottom: screenSize === "md" || screenSize === "sm" ? "450px" : "500px",
         }}
       >
         <h2
           style={{
-            fontSize:
-              screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem",
+            fontSize: screenSize === "md" || screenSize === "sm" ? "2rem" : "3rem",
             fontWeight: "bold",
           }}
         >
           Contact me
         </h2>
+
         <div
           style={{
             marginTop: "1rem",
             padding: "2rem",
             borderRadius: "0.375rem",
             backgroundColor: "grey",
-            width: screenSize == "md" || screenSize == "sm" ? "16rem" : "24rem",
+            width: screenSize === "md" || screenSize === "sm" ? "16rem" : "24rem",
             maxWidth: "100%",
             opacity: 0.9,
           }}
         >
           {state.succeeded ? (
-            <p style={{ color: "gold", textAlign: "center" }}>
-              Thanks for your message !
-            </p>
+            <p style={{ color: "gold", textAlign: "center" }}>Thanks for your message!</p>
           ) : (
             <form onSubmit={handleSubmit}>
               <label
@@ -592,6 +589,7 @@ const ContactSection = () => {
     </Section>
   );
 };
+
 
 const ProjectsSection = () => {
   let [screenSize, setScreenSize] = useState(
