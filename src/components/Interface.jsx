@@ -33,6 +33,7 @@ const Section = (props) => {
         height: "75vh",
         width: mobileTop ? "80vw" : "100vw",
         padding: "6rem",
+        paddingRight: "1.5rem",
         maxWidth: "1536px", // max-w-screen-2xl
         margin: "0 auto",
         marginLeft:
