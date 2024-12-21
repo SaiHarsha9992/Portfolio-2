@@ -451,7 +451,8 @@ const ContactSection = () => {
       <div
         style={{
           paddingRight: screenSize === "md" || screenSize === "sm" ? "50px" : "0px",
-          paddingBottom: screenSize === "md" || screenSize === "sm" ? "450px" : "500px",
+          paddingBottom: screenSize === "md" || screenSize === "sm" ? "350px" : "400px", // Reduced bottom padding
+          minHeight: "100vh", // Ensures enough height for all content to fit
         }}
       >
         <h2
@@ -589,6 +590,7 @@ const ContactSection = () => {
     </Section>
   );
 };
+
 
 
 const ProjectsSection = () => {
