@@ -645,7 +645,7 @@ const ProjectsSection = () => {
           marginTop:
             screenSize == "md" || screenSize == "sm" ? "200px" : "200px",
           marginLeft:
-            screenSize == "md" || screenSize == "sm" ? "20px" : "240px",
+            screenSize == "md" || screenSize == "sm" ? "15px" : "240px",
           gap: "2rem", // Equivalent to gap-8
           alignItems: "center",
           justifyContent: "left",
