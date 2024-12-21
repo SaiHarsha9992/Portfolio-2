@@ -447,145 +447,153 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <Section>
-      <div
+    <Section
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "100vh", // Ensures full viewport height
+        padding: "20px", // Adjust padding for mobile and desktop
+        boxSizing: "border-box",
+      }}
+    >
+      <h2
         style={{
-          paddingRight: screenSize === "md" || screenSize === "sm" ? "50px" : "0px",
-          paddingBottom: screenSize === "md" || screenSize === "sm" ? "350px" : "400px", // Reduced bottom padding
-          minHeight: "100vh", // Ensures enough height for all content to fit
+          fontSize: screenSize === "sm" ? "2rem" : "3rem",
+          fontWeight: "bold",
+          textAlign: "center",
+          marginBottom: "1rem",
         }}
       >
-        <h2
-          style={{
-            fontSize: screenSize === "md" || screenSize === "sm" ? "2rem" : "3rem",
-            fontWeight: "bold",
-          }}
-        >
-          Contact me
-        </h2>
+        Contact me
+      </h2>
 
-        <div
-          style={{
-            marginTop: "1rem",
-            padding: "2rem",
-            borderRadius: "0.375rem",
-            backgroundColor: "grey",
-            width: screenSize === "md" || screenSize === "sm" ? "16rem" : "24rem",
-            maxWidth: "100%",
-            opacity: 0.9,
-          }}
-        >
-          {state.succeeded ? (
-            <p style={{ color: "gold", textAlign: "center" }}>Thanks for your message!</p>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <label
-                htmlFor="name"
-                style={{
-                  fontWeight: "medium",
-                  color: "#000000",
-                  marginTop: "0.25rem",
-                  marginBottom: "0.25rem",
-                }}
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                style={{
-                  width: "100%",
-                  borderRadius: "0.375rem",
-                  borderWidth: "0",
-                  color: "#000000",
-                  boxShadow:
-                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                  placeholderColor: "rgba(0,0,0,0.4)",
-                  padding: "0.75rem",
-                }}
-              />
-              <label
-                htmlFor="email"
-                style={{
-                  fontWeight: "medium",
-                  color: "#000000",
-                  marginTop: "1rem",
-                }}
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                style={{
-                  width: "100%",
-                  borderRadius: "0.375rem",
-                  borderWidth: "0",
-                  color: "#000000",
-                  boxShadow:
-                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                  placeholderColor: "rgba(0,0,0,0.4)",
-                  padding: "0.75rem",
-                }}
-              />
-              <ValidationError
-                style={{
-                  margin: 1,
-                  color: "red",
-                }}
-                errors={state.errors}
-              />
-              <label
-                htmlFor="message"
-                style={{
-                  fontWeight: "medium",
-                  color: "#000000",
-                  marginTop: "1rem",
-                }}
-              >
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                style={{
-                  height: "8rem",
-                  width: "100%",
-                  borderRadius: "0.375rem",
-                  borderWidth: "0",
-                  color: "#000000",
-                  boxShadow:
-                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                  placeholderColor: "rgba(0,0,0,0.4)",
-                  padding: "0.75rem",
-                }}
-              />
-              <ValidationError
-                style={{
-                  margin: 1,
-                  color: "red",
-                }}
-                errors={state.errors}
-              />
-              <button
-                disabled={state.submitting}
-                style={{
-                  backgroundColor: "black",
-                  color: "#FFFFFF",
-                  padding: "1rem 2rem",
-                  borderRadius: "0.5rem",
-                  fontWeight: "bold",
-                  fontSize: "1.25rem",
-                  marginTop: "2.5rem",
-                }}
-              >
-                Submit
-              </button>
-            </form>
-          )}
-        </div>
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "600px", // Maximum width for form on large screens
+          padding: "2rem",
+          backgroundColor: "grey",
+          borderRadius: "0.375rem",
+          opacity: 0.9,
+          marginBottom: "2rem", // Space between the form and bottom
+        }}
+      >
+        {state.succeeded ? (
+          <p style={{ color: "gold", textAlign: "center" }}>Thanks for your message!</p>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <label
+              htmlFor="name"
+              style={{
+                fontWeight: "medium",
+                color: "#000000",
+                marginTop: "0.25rem",
+                marginBottom: "0.25rem",
+              }}
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              style={{
+                width: "100%",
+                borderRadius: "0.375rem",
+                borderWidth: "0",
+                color: "#000000",
+                boxShadow:
+                  "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
+                placeholderColor: "rgba(0,0,0,0.4)",
+                padding: "0.75rem",
+                marginBottom: "1rem",
+              }}
+            />
+            <label
+              htmlFor="email"
+              style={{
+                fontWeight: "medium",
+                color: "#000000",
+                marginTop: "1rem",
+              }}
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              style={{
+                width: "100%",
+                borderRadius: "0.375rem",
+                borderWidth: "0",
+                color: "#000000",
+                boxShadow:
+                  "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
+                placeholderColor: "rgba(0,0,0,0.4)",
+                padding: "0.75rem",
+                marginBottom: "1rem",
+              }}
+            />
+            <ValidationError
+              style={{
+                margin: 1,
+                color: "red",
+              }}
+              errors={state.errors}
+            />
+            <label
+              htmlFor="message"
+              style={{
+                fontWeight: "medium",
+                color: "#000000",
+                marginTop: "1rem",
+              }}
+            >
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              style={{
+                height: "8rem",
+                width: "100%",
+                borderRadius: "0.375rem",
+                borderWidth: "0",
+                color: "#000000",
+                boxShadow:
+                  "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
+                placeholderColor: "rgba(0,0,0,0.4)",
+                padding: "0.75rem",
+                marginBottom: "1rem",
+              }}
+            />
+            <ValidationError
+              style={{
+                margin: 1,
+                color: "red",
+              }}
+              errors={state.errors}
+            />
+            <button
+              disabled={state.submitting}
+              style={{
+                backgroundColor: "black",
+                color: "#FFFFFF",
+                padding: "1rem 2rem",
+                borderRadius: "0.5rem",
+                fontWeight: "bold",
+                fontSize: "1.25rem",
+                marginTop: "2.5rem",
+                width: "100%", // Ensure the button fills its container
+              }}
+            >
+              Submit
+            </button>
+          </form>
+        )}
       </div>
     </Section>
   );
