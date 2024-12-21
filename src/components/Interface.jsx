@@ -647,7 +647,7 @@ const ProjectsSection = () => {
         <button
           style={{
             transition: "color 0.3s ease", // Equivalent to transition-colors
-            width: screenSize == "md" || screenSize == "sm" ? "40px" : "50px",
+            width: screenSize == "md" || screenSize == "sm" ? "60px" : "70px",
           }}
           onMouseEnter={(e) => (e.target.style.color = "#4F46E5")} // hover:text-indigo-600
           onMouseLeave={(e) => (e.target.style.color = "inherit")} // Reset color on mouse leave
@@ -667,7 +667,7 @@ const ProjectsSection = () => {
         <button
           style={{
             transition: "color 0.3s ease", // Equivalent to transition-colors
-            width: screenSize == "md" || screenSize == "sm" ? "40px" : "50px",
+            width: screenSize == "md" || screenSize == "sm" ? "60px" : "70px",
           }}
           onMouseEnter={(e) => (e.target.style.color = "black")} // hover:text-indigo-600
           onMouseLeave={(e) => (e.target.style.color = "inherit")} // Reset color on mouse leave
