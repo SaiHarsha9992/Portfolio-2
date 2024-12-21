@@ -451,7 +451,6 @@ const ContactSection = () => {
     <Section>
       <div
         style={{
-          
           paddingRight:
             screenSize === "md" || screenSize === "sm" ? "50px" : "0px",
           paddingBottom:
@@ -470,7 +469,7 @@ const ContactSection = () => {
         <div
           style={{
             marginTop: "1rem",
-            padding: "2rem",
+            padding: "1rem",
             borderRadius: "0.375rem",
             backgroundColor: "grey",
             width: screenSize == "md" || screenSize == "sm" ? "11rem" : "24rem",
@@ -489,8 +488,8 @@ const ContactSection = () => {
                 style={{
                   fontWeight: "medium",
                   color: "#000000",
-                  marginTop: "0.25rem",
-                  marginBottom: "0.25rem",
+                  marginTop: "0.15rem",
+                  marginBottom: "0.15rem",
                 }}
               >
                 Name
@@ -507,7 +506,7 @@ const ContactSection = () => {
                   boxShadow:
                     "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
                   placeholderColor: "rgba(0,0,0,0.4)",
-                  padding: "0.75rem",
+                  padding: "0.65rem",
                 }}
               />
               <label
@@ -532,7 +531,7 @@ const ContactSection = () => {
                   boxShadow:
                     "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
                   placeholderColor: "rgba(0,0,0,0.4)",
-                  padding: "0.75rem",
+                  padding: "0.65rem",
                 }}
               />
               <ValidationError
@@ -579,11 +578,11 @@ const ContactSection = () => {
                 style={{
                   backgroundColor: "black",
                   color: "#FFFFFF",
-                  padding: "1rem 2rem",
+                  padding: "0.5rem 1.5rem",
                   borderRadius: "0.5rem",
                   fontWeight: "bold",
-                  fontSize: "1.25rem",
-                  marginTop: "2.5rem",
+                  fontSize: "1.05rem",
+                  marginTop: "2rem",
                 }}
               >
                 Submit
@@ -647,7 +646,7 @@ const ProjectsSection = () => {
         <button
           style={{
             transition: "color 0.3s ease", // Equivalent to transition-colors
-            width: screenSize == "md" || screenSize == "sm" ? "60px" : "70px",
+            width: screenSize == "md" || screenSize == "sm" ? "40px" : "50px",
           }}
           onMouseEnter={(e) => (e.target.style.color = "#4F46E5")} // hover:text-indigo-600
           onMouseLeave={(e) => (e.target.style.color = "inherit")} // Reset color on mouse leave
@@ -658,7 +657,7 @@ const ProjectsSection = () => {
         <h2
           style={{
             fontSize:
-              screenSize == "md" || screenSize == "sm" ? "3rem" : "4rem", // text-5xl
+              screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem", // text-5xl
             fontWeight: "bold", // font-bold
           }}
         >
@@ -667,7 +666,7 @@ const ProjectsSection = () => {
         <button
           style={{
             transition: "color 0.3s ease", // Equivalent to transition-colors
-            width: screenSize == "md" || screenSize == "sm" ? "60px" : "70px",
+            width: screenSize == "md" || screenSize == "sm" ? "40px" : "50px",
           }}
           onMouseEnter={(e) => (e.target.style.color = "black")} // hover:text-indigo-600
           onMouseLeave={(e) => (e.target.style.color = "inherit")} // Reset color on mouse leave
