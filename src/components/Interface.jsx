@@ -9,6 +9,7 @@ const Section = (props) => {
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
   );
   const { children, mobileTop } = props;
+  
   const updateScreenSize = () => {
     if (window.innerWidth < 768) {
       setScreenSize("sm");
@@ -22,44 +23,31 @@ const Section = (props) => {
   useEffect(() => {
     const handleResize = () => updateScreenSize();
     window.addEventListener("resize", handleResize);
-    // Initial check
     updateScreenSize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  console.log(screenSize);
+
   return (
     <motion.section
-      style={{
-        height: "75vh",
-        width: mobileTop ? "80vw" : "100vw",
-        padding: "8rem",
-        maxWidth: "1536px", // max-w-screen-2xl
-        margin: "0 auto",
-        marginLeft:
-          screenSize == "md" || screenSize == "sm" ? "-90px" : "160px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        justifyContent:
-          screenSize == "md" || screenSize == "sm" ? "start" : "center",
-      }}
-      initial={{
-        opacity: 0,
-        y: 50,
-      }}
+      className={`${
+        screenSize === "md" || screenSize === "sm" ? "ml-[-90px]" : "ml-[160px]"
+      } flex flex-col justify-${screenSize === "md" || screenSize === "sm" ? "start" : "center"} 
+        ${mobileTop ? "w-[80vw]" : "w-[100vw]"} max-w-[1536px] 
+        px-[8rem] py-[4rem] mx-auto`}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: {
-          duration: 1,
-          delay: 0.6,
-        },
+        transition: { duration: 1, delay: 0.6 },
       }}
     >
       {children}
     </motion.section>
   );
 };
+
+
+
 export const Interface = (props) => {
   const { setSection } = props;
   return (
@@ -73,9 +61,9 @@ export const Interface = (props) => {
       }}
     >
       <AboutSection setSection={setSection} />
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
+      <SkillsSection setSection={setSection} />
+      <ProjectsSection setSection={setSection} />
+      <ContactSection setSection={setSection} />
     </div>
   );
 };
