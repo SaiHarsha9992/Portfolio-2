@@ -32,7 +32,7 @@ const Section = (props) => {
       style={{
         height: "75vh",
         width: mobileTop ? "80vw" : "100vw",
-        padding: "8rem",
+        padding: "6rem",
         maxWidth: "1536px", // max-w-screen-2xl
         margin: "0 auto",
         marginLeft:
@@ -453,7 +453,7 @@ const ContactSection = () => {
         style={{
           
           paddingRight:
-            screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
+            screenSize === "md" || screenSize === "sm" ? "50px" : "0px",
           paddingBottom:
             screenSize == "md" || screenSize == "sm" ? "650px" : "500px",
         }}
