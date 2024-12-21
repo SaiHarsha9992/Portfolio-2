@@ -451,10 +451,11 @@ const ContactSection = () => {
     <Section>
       <div
         style={{
+          
           paddingRight:
             screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
           paddingBottom:
-            screenSize == "md" || screenSize == "sm" ? "450px" : "500px",
+            screenSize == "md" || screenSize == "sm" ? "650px" : "500px",
         }}
       >
         <h2
@@ -472,7 +473,7 @@ const ContactSection = () => {
             padding: "2rem",
             borderRadius: "0.375rem",
             backgroundColor: "grey",
-            width: screenSize == "md" || screenSize == "sm" ? "10rem" : "24rem",
+            width: screenSize == "md" || screenSize == "sm" ? "11rem" : "24rem",
             maxWidth: "100%",
             opacity: 0.9,
           }}
