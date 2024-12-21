@@ -455,7 +455,10 @@ const ContactSection = () => {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh", // Ensures full viewport height
-        padding: "20px", // Adjust padding for mobile and desktop
+         paddingRight:
+            screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
+          paddingBottom:
+            screenSize == "md" || screenSize == "sm" ? "450px" : "500px",
         boxSizing: "border-box",
       }}
     >
