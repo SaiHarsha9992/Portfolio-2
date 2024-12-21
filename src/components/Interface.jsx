@@ -460,7 +460,7 @@ const ContactSection = () => {
         <h2
           style={{
             fontSize:
-              screenSize == "md" || screenSize == "sm" ? "1rem" : "2rem",
+              screenSize == "md" || screenSize == "sm" ? "1.5rem" : "2.5rem",
             fontWeight: "bold",
           }}
         >
@@ -472,7 +472,7 @@ const ContactSection = () => {
             padding: "2rem",
             borderRadius: "0.375rem",
             backgroundColor: "grey",
-            width: screenSize == "md" || screenSize == "sm" ? "16rem" : "24rem",
+            width: screenSize == "md" || screenSize == "sm" ? "10rem" : "24rem",
             maxWidth: "100%",
             opacity: 0.9,
           }}
