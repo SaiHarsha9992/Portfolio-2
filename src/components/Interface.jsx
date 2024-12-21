@@ -425,6 +425,7 @@ const ContactSection = () => {
   let [screenSize, setScreenSize] = useState(
     window.innerWidth < 768 ? "sm" : window.innerWidth < 1024 ? "md" : "lg"
   );
+
   const updateScreenSize = () => {
     if (window.innerWidth < 768) {
       setScreenSize("sm");
@@ -442,153 +443,111 @@ const ContactSection = () => {
     updateScreenSize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <Section>
       <div
         style={{
-          paddingRight:
-            screenSize == "md" || screenSize == "sm" ? "50px" : "0px",
-          paddingBottom:
-            screenSize == "md" || screenSize == "sm" ? "450px" : "500px",
+          paddingRight: screenSize === "md" || screenSize === "sm" ? "50px" : "0px",
+          paddingBottom: screenSize === "md" || screenSize === "sm" ? "450px" : "500px",
         }}
       >
         <h2
           style={{
-            fontSize:
-              screenSize == "md" || screenSize == "sm" ? "2rem" : "3rem",
+            fontSize: screenSize === "md" || screenSize === "sm" ? "1rem" : "2rem",
             fontWeight: "bold",
+            color: "white",
           }}
         >
-          Contact me
+          Contact Me
         </h2>
-        <div
-          style={{
-            marginTop: "1rem",
-            padding: "2rem",
-            borderRadius: "0.375rem",
-            backgroundColor: "grey",
-            width: screenSize == "md" || screenSize == "sm" ? "16rem" : "24rem",
-            maxWidth: "100%",
-            opacity: 0.9,
-          }}
-        >
-          {state.succeeded ? (
-            <p style={{ color: "gold", textAlign: "center" }}>
-              Thanks for your message !
-            </p>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <label
-                htmlFor="name"
-                style={{
-                  fontWeight: "medium",
-                  color: "#000000",
-                  marginTop: "0.25rem",
-                  marginBottom: "0.25rem",
-                }}
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                style={{
-                  width: "100%",
-                  borderRadius: "0.375rem",
-                  borderWidth: "0",
-                  color: "#000000",
-                  boxShadow:
-                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                  placeholderColor: "rgba(0,0,0,0.4)",
-                  padding: "0.75rem",
-                }}
-              />
-              <label
-                htmlFor="email"
-                style={{
-                  fontWeight: "medium",
-                  color: "#000000",
-                  marginTop: "1rem",
-                }}
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                style={{
-                  width: "100%",
-                  borderRadius: "0.375rem",
-                  borderWidth: "0",
-                  color: "#000000",
-                  boxShadow:
-                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                  placeholderColor: "rgba(0,0,0,0.4)",
-                  padding: "0.75rem",
-                }}
-              />
-              <ValidationError
-                style={{
-                  margin: 1,
-                  color: "red",
-                }}
-                errors={state.errors}
-              />
-              <label
-                htmlFor="message"
-                style={{
-                  fontWeight: "medium",
-                  color: "#000000",
-                  marginTop: "1rem",
-                }}
-              >
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                style={{
-                  height: "8rem",
-                  width: "100%",
-                  borderRadius: "0.375rem",
-                  borderWidth: "0",
-                  color: "#000000",
-                  boxShadow:
-                    "0 0.125rem 0.25rem rgba(0,0,0,0.05),inset 0 0.0625rem 0.125rem rgba(0,0,0,0.05)",
-                  placeholderColor: "rgba(0,0,0,0.4)",
-                  padding: "0.75rem",
-                }}
-              />
-              <ValidationError
-                style={{
-                  margin: 1,
-                  color: "red",
-                }}
-                errors={state.errors}
-              />
-              <button
-                disabled={state.submitting}
-                style={{
-                  backgroundColor: "black",
-                  color: "#FFFFFF",
-                  padding: "1rem 2rem",
-                  borderRadius: "0.5rem",
-                  fontWeight: "bold",
-                  fontSize: "1.25rem",
-                  marginTop: "2.5rem",
-                }}
-              >
-                Submit
-              </button>
-            </form>
-          )}
-        </div>
+        <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
+          <div>
+            <label htmlFor="name" style={{ color: "white", marginBottom: "10px", display: "block" }}>
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              required
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                borderRadius: "0.5rem",
+                border: "1px solid #ccc",
+              }}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" style={{ color: "white", marginBottom: "10px", display: "block" }}>
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                borderRadius: "0.5rem",
+                border: "1px solid #ccc",
+              }}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="message" style={{ color: "white", marginBottom: "10px", display: "block" }}>
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                borderRadius: "0.5rem",
+                border: "1px solid #ccc",
+              }}
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={state.submitting}
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "0.5rem",
+              fontWeight: "bold",
+              fontSize: "1rem",
+            }}
+          >
+            {state.submitting ? "Submitting..." : "Send Message"}
+          </button>
+        </form>
+
+        {state.succeeded && (
+          <p style={{ color: "green", marginTop: "20px" }}>Thank you! Your message has been sent.</p>
+        )}
+        {state.errors.length > 0 && (
+          <p style={{ color: "red", marginTop: "20px" }}>
+            Oops! Something went wrong. Please try again later.
+          </p>
+        )}
       </div>
     </Section>
   );
 };
+
 
 const ProjectsSection = () => {
   let [screenSize, setScreenSize] = useState(
