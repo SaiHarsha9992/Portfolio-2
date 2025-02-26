@@ -3,8 +3,7 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "max-age=31536000" },
-        { "key": "Content-Encoding", "value": "br" }
+        { "key": "Cache-Control", "value": "max-age=31536000" }
       ]
     }
   ]
